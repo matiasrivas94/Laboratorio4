@@ -1,0 +1,27 @@
+<div class="form-signin form-si">
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">REGISTER</h1>
+        <p>If you are already registered, you can <a routerLink="/logIn">Login Here</a></p>
+    </div>
+    <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control shadow-sm" (change)="email = $event.target.value; 
+        EmailValid($event.target)" placeholder="Email address" required="" autofocus="">
+        <label for="inputEmail">Email</label>
+    </div>
+    <div class="form-label-group">
+        <input type="text" id="inputName" class="form-control shadow-sm" (change)="userName = $event.target.value; 
+        validarAuthName($event.target)" placeholder="Name address" required="" autofocus="">
+        <label for="inputName">Name</label>
+    </div>
+    <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control shadow-sm" (change)="pass = $event.target.value"
+         placeholder="Password" required="">
+        <label for="inputPassword">Password</label>
+    </div>
+    <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control shadow-sm" (change)="confirm = $event.target.value"
+         placeholder="Password" required="">
+        <label for="inputPassword">Repeat password</label>
+    </div>
+    <button class="btn btn-lg btn-success btn-block shadow" (click)="check()">REGISTER</button>
+</div>

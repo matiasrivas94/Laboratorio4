@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: brown;
+    text-transform: 'uppercase';
+}
+div{
+    text-align: center;
+    cursor: progress;
+    background: rgb(70, 11, 167);
+}

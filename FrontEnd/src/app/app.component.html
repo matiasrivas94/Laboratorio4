@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">{{ title }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" 
+        aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbars">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/list"> View Files</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/upload">Upload File</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/download">Download</a>
+                </li>
+            </ul>
+            <div class="justify-content-md-center">
+                <div class="form-inline my-2 my-md-0">
+                    <input class="form-control mr-sm-2" type="search" (change)="name= $event.target.value"
+                         placeholder="Search by Name" aria-label="Search">
+                    <button class="btn btn-primary my-2 my-sm-0" (click)="search(name)">Search</button>
+                </div>
+            </div>
+
+            <ul class="navbar-nav ml-auto" [hidden]="loged">
+
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/logIn">LogIn</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/logUp">Register</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto" [hidden]="!loged">
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="singOff()">Get out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <div class="alert alert-danger alert-dismissible fade show m-0" role="alert" 
+        *ngFor="let error of error$ | async">
+        {{ error.error.message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
